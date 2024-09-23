@@ -2,7 +2,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import personaImage from './persona.jpg'
 import Image from 'next/image';
-import { Rocket} from 'lucide-react';
+// import { Rocket} from 'lucide-react';
 import { User, Briefcase, BarChart, PieChart } from 'lucide-react';
 import { useRouter } from 'next/navigation'
 import { useToast } from "@/hooks/use-toast"
