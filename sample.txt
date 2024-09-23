@@ -1,0 +1,90 @@
+**1. Tóm Tắt Tổng Quan**
+
+Đại học Sư phạm Kỹ thuật TP.HCM có mục tiêu cung cấp cơ hội giáo dục đại học chất lượng cao cho những sinh viên khao khát theo đuổi sự nghiệp trong lĩnh vực sư phạm và kỹ thuật. Với trọng tâm là nghiên cứu và giảng dạy tiên tiến, trường đại học này cam kết nuôi 
+dưỡng những nhà giáo và kỹ sư có năng lực, sẵn sàng dẫn dắt đất nước trong tương lai.
+
+**2. Ngữ cảnh kinh doanh**
+
+**Persona Doanh Nghiệp**
+
+* Ngành: Giáo dục
+* Cấp độ B2B: SME
+* Phạm vi địa lý: Tập trung khu vực (TPHCM và các tỉnh lân cận)
+* Phạm vi doanh thu hàng năm: < 10 triệu USD
+* Số lượng nhân viên: 200-500
+* Ngữ cảnh kinh doanh: Quy định giáo dục thay đổi, nhu cầu về giáo dục chất lượng cao ngày càng tăng, cạnh tranh gia tăng giữa các 
+trường đại học trong khu vực
+
+**Chỉ Số Kinh Doanh**
+
+* KPI:
+    * Tỷ lệ đăng ký mới
+    * Tỷ lệ giữ chân sinh viên
+    * Xếp hạng trường đại học
+
+**Con Người và Quy Trình**
+
+* Phòng ban: Tuyển sinh, Đào tạo, Quản lý sinh viên, IT
+* End-user: Sinh viên tiềm năng, sinh viên hiện tại
+* Quy trình hiện tại:
+    * Sinh viên nộp hồ sơ qua email
+    * Phòng tuyển sinh đánh giá hồ sơ
+    * Sinh viên được thông báo kết quả
+    * Sinh viên nhập học và thanh toán học phí
+* Các công cụ hiện tại:
+    * Hệ thống quản lý tuyển sinh (CRM)
+    * Website trường đại học
+    * Hệ thống quản lý học tập (LMS)
+* Các Job to be Done:
+    * Tìm thông tin về trường đại học và các chương trình đào tạo
+    * Nộp và theo dõi đơn xin nhập học
+    * Quản lý lịch học và điểm số
+    * Truy cập các nguồn lực hỗ trợ sinh viên
+* Các Pain Points:
+    * Quá trình tuyển sinh thủ công tốn thời gian và dễ xảy ra lỗi
+    * Các kênh thông tin rải rác và lỗi thời
+    * Sinh viên gặp khó khăn khi liên hệ với các phòng ban khác nhau
+    * Thiếu sự minh bạch và theo dõi tiến độ nộp đơn
+
+**Nhu cầu giải pháp**
+
+* Góc nhìn kinh doanh:
+    * Cải thiện hiệu quả quy trình tuyển sinh và quản lý sinh viên
+    * Tăng cường sự minh bạch và truy cập thông tin
+    * Nâng cao trải nghiệm của sinh viên
+* Góc nhìn người dùng:
+    * Một nền tảng trực tuyến dễ sử dụng để khám phá và nộp đơn vào các chương trình đào tạo
+    * Truy cập vào thông tin trường đại học được cập nhật và toàn diện
+    * Khả năng theo dõi tiến độ nộp đơn và tương tác với các phòng ban liên quan
+* Góc nhìn integration:
+    * Tích hợp với CRM hiện tại để hợp lý hóa dữ liệu tuyển sinh
+    * Tích hợp với website trường đại học để cung cấp thông tin thời gian thực
+    * Tích hợp với LMS để quản lý lịch học và điểm số
+
+**3. Đo lường thành công**
+
+Thành công được đo lường bằng:
+
+* Thời gian xử lý đơn đăng ký giảm
+* Tỷ lệ duyệt đơn xin nhập học tăng
+* Sự hài lòng của sinh viên về quy trình tuyển sinh và quản lý sinh viên
+
+**4. Buyer Persona**
+
+**Vai trò 1: Cố vấn Học tập**
+
+* Trách nhiệm: Hướng dẫn và hỗ trợ sinh viên trong suốt quá trình nhập học và hành trình đại học
+* Mối quan tâm: Hiệu quả quy trình tuyển sinh, khả năng tiếp cận thông tin, sự hài lòng của sinh viên
+* Điểm đau: Quy trình tuyển sinh thủ công, thiếu sự minh bạch và hỗ trợ cho sinh viên
+
+**Vai trò 2: Trưởng Phòng Tuyển sinh**
+
+* Trách nhiệm: Quản lý tất cả các hoạt động tuyển sinh, bao gồm tuyển dụng, đánh giá hồ sơ và nhập học
+* Mối quan tâm: Hiệu quả chi phí, sự minh bạch, khả năng mở rộng
+* Điểm đau: Quá trình thủ công tốn thời gian, nhiều lỗi, khó khăn trong việc theo dõi và báo cáo tiến độ
+
+**Vai trò 3: Hiệu trưởng**
+
+* Trách nhiệm: Lãnh đạo và giám sát toàn bộ hoạt động của trường đại học, bao gồm tuyển sinh, đào tạo và quản lý sinh viên
+* Mối quan tâm: Nâng cao danh tiếng của trường đại học, tăng cường trải nghiệm của sinh viên, cải tiến liên tục
+* Điểm đau: Sự cạnh tranh gia tăng, nhu cầu về giáo dục chất lượng cao, sự hài lòng và giữ chân sinh viên
