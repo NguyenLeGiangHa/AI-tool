@@ -101,6 +101,8 @@ const UserPersonaGenerator = () => {
       const obj = await res.json()
       if (obj['rowCount'] == 1) {
         const data = obj['rows'][0]
+        data['nguCanhKinhDoanh'] = JSON.parse(data['nguCanhKinhDoanh'])
+        // console.log(data)
         setPersona(data)
         setLoaded(true)
         setId(data['id'])
@@ -183,7 +185,7 @@ const UserPersonaGenerator = () => {
       <h4 className="text-lg font-semibold text-[#61BFAD] mb-2">{title}</h4>
       <div className="text-gray-300 whitespace-pre-wrap">
         {(content || '').split('\n').map((item, index) => (
-          item.trim().startsWith('+') ? 
+          item.trim().startsWith('+') ?
             <p key={index} className="ml-4 mb-2">{item}</p> :
             <p key={index} className="mb-2">{item}</p>
         ))}
@@ -201,7 +203,7 @@ const UserPersonaGenerator = () => {
       <p className="mb-8 text-center text-2xl leading-tight text-gray-300">
         Hiểu rõ KPIS, Quy trình và Nhu cầu giải pháp của khách hàng tiềm năng để xây dựng chiến lược sản phẩm.
       </p>
-  
+
       <Suspense fallback={<div>Loading...</div>}>
         <div className="relative flex h-[calc(100vh-12rem)] flex-col space-y-6 overflow-hidden rounded-2xl bg-gray-800 shadow-xl md:flex-row md:space-x-8 md:space-y-0">
           {/* Generate Persona Form (Left Side) */}
@@ -247,7 +249,7 @@ const UserPersonaGenerator = () => {
               {personasGenerated} user personas generated already
             </p> */}
           </div>
-  
+
           {/* Image or Generated Persona (Right Side) */}
           <div className="flex w-full items-center justify-center md:w-1/2">
             <div className="h-full w-full overflow-hidden rounded-2xl bg-gray-700 shadow-xl">
@@ -302,7 +304,7 @@ const UserPersonaGenerator = () => {
             </div>
           </div>
         </div>
-  
+
         {/* Newsletter Subscription (Bottom) */}
         {persona && (
           <div className="mt-12 w-full max-w-4xl mx-auto">
@@ -316,12 +318,12 @@ const UserPersonaGenerator = () => {
                   Stay updated with our latest insights and tips on marketing and user personas.
                 </p> */}
                 <div className="bg-white rounded-lg p-6">
-                  <iframe 
-                    src="https://mvpbuilder.substack.com/embed" 
-                    width="100%" 
-                    height="320" 
-                    style={{ border: 'none', background: 'white' }} 
-                    frameBorder="0" 
+                  <iframe
+                    src="https://mvpbuilder.substack.com/embed"
+                    width="100%"
+                    height="320"
+                    style={{ border: 'none', background: 'white' }}
+                    frameBorder="0"
                     scrolling="no"
                   ></iframe>
                 </div>

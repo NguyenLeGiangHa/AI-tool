@@ -114,8 +114,8 @@ const result = await openai.chat.completions.create({
   messages: [{ role: "system", content: sys_prompt }, { role: "user", content: user_prompt }],
   model: "gpt-4o-mini",
   stream: false,
-  temperature: 0.1,
-  max_completion_tokens: null
+  temperature: 0.3,
+  max_completion_tokens: null,
 });
 const response = await result.choices[0].message.content;
 
