@@ -29,7 +29,7 @@ const UserPersonaGenerator = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [id, setId] = useState('')
-  // const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   const { toast } = useToast()
   const router = useRouter();
   const [businessError, setBusinessError] = useState('');
@@ -243,7 +243,7 @@ const UserPersonaGenerator = () => {
                   </div>
                   <button
                     onClick={handleGenerate}
-                    disabled={loading}
+                    disabled={loading || loaded === false}
                     className="w-full rounded-lg bg-[#61BFAD] p-6 text-2xl font-semibold text-white shadow-md transition duration-200 hover:bg-[#4FA99A]"
                   >
                     {loading ? 'Đang tạo...' : 'Tạo chân dung khách hàng'}
