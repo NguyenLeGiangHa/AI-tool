@@ -8,7 +8,6 @@ const openai = new OpenAI({
 });
 
 export async function POST(req: Request) {
-  // console.log('kkkk t dô rồi')
   const { business, audience } = await req.json();
 
    // Input validation
