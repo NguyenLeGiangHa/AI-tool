@@ -29,7 +29,7 @@ const UserPersonaGenerator = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [id, setId] = useState('')
-  const [loaded, setLoaded] = useState(false);
+  // const [loaded, setLoaded] = useState(false);
   const { toast } = useToast()
   const router = useRouter();
   const [businessError, setBusinessError] = useState('');
