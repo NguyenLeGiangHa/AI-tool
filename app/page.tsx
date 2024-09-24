@@ -2,7 +2,6 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import personaImage from './persona.jpg'
 import Image from 'next/image';
-// import { Rocket} from 'lucide-react';
 import { User, Briefcase, BarChart, PieChart } from 'lucide-react';
 import { useRouter } from 'next/navigation'
 import { useToast } from "@/hooks/use-toast"
@@ -38,47 +37,54 @@ const UserPersonaGenerator = () => {
 
   const handleGenerate = async () => {
     let hasError = false;
+  
+    // Kiểm tra input của người dùng
     if (!business.trim()) {
-      setBusinessError('Please fill in your business information.');
+      setBusinessError('Vui lòng điền ý tưởng kinh doanh của bạn.');
       hasError = true;
     } else {
       setBusinessError('');
     }
+  
     if (!audience.trim()) {
-      setAudienceError('Please fill in your target customer information.');
+      setAudienceError('Vui lòng điền thông tin khách hàng tiềm năng của bạn.');
       hasError = true;
     } else {
       setAudienceError('');
     }
-
+  
+    // Nếu có lỗi thì ngừng xử lý
     if (hasError) return;
-
+  
     setLoading(true);
     setError(null);
+    setLoaded(false); // Reset trạng thái loaded
+  
     try {
       const response = await fetch('/api/generate-persona', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ business, audience }),
       });
-
-
+  
       if (!response.ok) throw new Error('Failed to generate persona');
       const data = await response.json();
-
-
+  
       if (data) {
-        data['id'] = id
-        data['business'] = business
-        data['audience'] = audience
+        const newId = random_id(); // Tạo ID mới
+        data['id'] = newId; // Gán ID mới cho persona
+        data['business'] = business;
+        data['audience'] = audience;
+  
         await fetch('/api/set-db', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),
         });
-        setPersona(data);
-        // setPersonasGenerated(prev => prev + 1);
-        setLoaded(true);
+  
+        setId(newId); // Cập nhật ID mới vào trạng thái
+        setPersona(data); // Cập nhật persona mới
+        setLoaded(true); // Đánh dấu là đã load xong
       }
     } catch (error) {
       console.error('Error generating persona:', error);
@@ -87,6 +93,7 @@ const UserPersonaGenerator = () => {
       setLoading(false);
     }
   };
+  
 
 
   useEffect(() => {
@@ -102,7 +109,6 @@ const UserPersonaGenerator = () => {
       if (obj['rowCount'] == 1) {
         const data = obj['rows'][0]
         data['nguCanhKinhDoanh'] = JSON.parse(data['nguCanhKinhDoanh'])
-        // console.log(data)
         setPersona(data)
         setLoaded(true)
         setId(data['id'])
@@ -237,7 +243,7 @@ const UserPersonaGenerator = () => {
                   </div>
                   <button
                     onClick={handleGenerate}
-                    disabled={loading || loaded}
+                    disabled={loading}
                     className="w-full rounded-lg bg-[#61BFAD] p-6 text-2xl font-semibold text-white shadow-md transition duration-200 hover:bg-[#4FA99A]"
                   >
                     {loading ? 'Đang tạo...' : 'Tạo chân dung khách hàng'}
@@ -245,9 +251,6 @@ const UserPersonaGenerator = () => {
                 </form>
               </div>
             </div>
-            {/* <p className="p-4 text-center text-lg text-gray-500">
-              {personasGenerated} user personas generated already
-            </p> */}
           </div>
 
           {/* Image or Generated Persona (Right Side) */}
@@ -298,39 +301,23 @@ const UserPersonaGenerator = () => {
                       icon={<PieChart className="h-6 w-6" />}
                       content={persona.buyerPersona}
                     />
+                    {/* Thêm iframe vào đây */}
+                    <div className="bg-white rounded-lg p-6">
+                              <iframe
+                                src="https://mvpbuilder.substack.com/embed"
+                                width="100%"
+                                height="320"
+                                style={{ border: 'none', background: 'white' }}
+                                frameBorder="0"
+                                scrolling="no"
+                              ></iframe>
+                            </div>
                   </div>
-                </div>
+                </div>            
               )}
             </div>
           </div>
         </div>
-
-        {/* Newsletter Subscription (Bottom) */}
-        {persona && (
-          <div className="mt-12 w-full max-w-4xl mx-auto">
-            <div className="bg-gray-800 rounded-xl shadow-2xl overflow-hidden">
-              <div className="p-8 space-y-6">
-                {/* <div className="flex items-center space-x-4">
-                  <Rocket className="h-8 w-8 text-[#61BFAD]" />
-                  <h3 className="text-3xl font-bold text-[#61BFAD]">Subscribe to Our Newsletter</h3>
-                </div>
-                <p className="text-xl text-gray-300">
-                  Stay updated with our latest insights and tips on marketing and user personas.
-                </p> */}
-                <div className="bg-white rounded-lg p-6">
-                  <iframe
-                    src="https://mvpbuilder.substack.com/embed"
-                    width="100%"
-                    height="320"
-                    style={{ border: 'none', background: 'white' }}
-                    frameBorder="0"
-                    scrolling="no"
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
       </Suspense>
 
       {error && (
