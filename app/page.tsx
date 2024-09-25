@@ -211,9 +211,9 @@ const UserPersonaGenerator = () => {
       </p>
 
       <Suspense fallback={<div>Loading...</div>}>
-        <div className="relative flex h-[calc(100vh-12rem)] flex-col space-y-6 overflow-hidden rounded-2xl bg-gray-800 shadow-xl md:flex-row md:space-x-8 md:space-y-0">
+        <div className="relative flex flex-col space-y-6 items-center rounded-2xl bg-gray-800 shadow-xl md:flex-row md:space-x-8 md:space-y-0">
           {/* Generate Persona Form (Left Side) */}
-          <div className="flex w-full flex-col bg-white md:w-1/2">
+          <div className="flex w-full flex-col bg-white md:w-1/2 h-min">
             <div className="flex flex-grow items-center justify-center">
               <div className="w-full max-w-4xl p-12">
                 <form onSubmit={(e) => e.preventDefault()} className="space-y-12">
@@ -254,16 +254,15 @@ const UserPersonaGenerator = () => {
           </div>
 
           {/* Image or Generated Persona (Right Side) */}
-          <div className="flex w-full items-center justify-center md:w-1/2">
+          <div className="flex h-full md:h-[70vh] w-full items-center justify-center md:w-1/2">
             <div className="h-full w-full overflow-hidden rounded-2xl bg-gray-700 shadow-xl">
               {!persona ? (
-                <div className="relative h-full w-full">
+                <div className="h-full w-full">
                   <Image
                     src={personaImage}
                     alt="User Persona Examples"
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-2xl"
+                    // style={{objectFit: "cover", position: "initial"}}
+                    className="rounded-2xl object-cover h-full w-full"
                   />
                 </div>
               ) : (
